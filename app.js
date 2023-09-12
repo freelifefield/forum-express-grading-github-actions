@@ -1,8 +1,5 @@
 const express = require('express')
 const routes = require('./routes')
-
-const express = require('express')
-const routes = require('./routes')
 const exhbs = require('express-handlebars')
 const session = require('express-session')
 const flash = require('connect-flash')
