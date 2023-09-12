@@ -1,6 +1,5 @@
 const express = require('express')
 const routes = require('./routes')
-const exhbs = require('express-handlebars')
 const session = require('express-session')
 const flash = require('connect-flash')
 const passport = require('passport')
@@ -14,8 +13,6 @@ app.use(routes)
 
 const SESSION_SECRET = 'secret'
 
-app.engine('hbs', exhbs({ extname: '.hbs', helpers: handlebarsHelpers }))
-app.set('view engine', 'hbs')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(session({
