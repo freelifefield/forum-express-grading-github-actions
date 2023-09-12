@@ -3,9 +3,10 @@ const passport = require('../config/passport')
 
 const admin = require('./modules/admin')
 const userController = require('../controllers/user-controller');
-const router = express.Router()
+
 
 const { authenticatedAdmin } = require('../middleware/auth')
+const router = express.Router()
 
 router.use('/admin', authenticatedAdmin, admin)
 
