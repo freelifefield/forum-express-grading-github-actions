@@ -123,11 +123,13 @@ const adminController = {
   patchUser: (req, res, next) => {
     return User.findByPk(req.params.id)
       .then(user => {
+        console.log('===>', user)
         if (!user) throw new Error("User didn't exist!")
 
         if (user.email === 'root@example.com') {
           req.flash('error_messages', '禁止變更 root 權限')
         } else {
+          console.log('==>', { isAdmin: !user.isAdmin })
           return user.update({ isAdmin: !user.isAdmin })
         }
       })
