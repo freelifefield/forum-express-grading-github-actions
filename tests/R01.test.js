@@ -114,7 +114,7 @@ describe('# R01', () => {
       })
     })
 
-    context.skip('# [修改使用者權限] for user (user -> admin)', () => {
+    context('# [修改使用者權限] for user (user -> admin)', () => {
       before(() => {
         // 製作假資料
         // 本 context 會用這筆資料進行測試
@@ -153,7 +153,7 @@ describe('# R01', () => {
       })
     })
 
-    context.skip('# [修改使用者權限] for user (admin -> user)', () => {
+    context('# [修改使用者權限] for user (admin -> user)', () => {
       before(() => {
         // 製作假資料
         // 本 context 會用這筆資料進行測試
