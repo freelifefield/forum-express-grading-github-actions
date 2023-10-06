@@ -3,7 +3,8 @@ name: Node.js test
 on:
   push:
     branches:
-#      - main
+      - main
+      - 'R*'
       - '*-test'
   pull_request:
     branches:
