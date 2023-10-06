@@ -7,7 +7,7 @@ on:
       - '*-test'
   pull_request:
     branches:
-#      - main
+      - main
 
 env:
   NODE_ENV: github
@@ -17,11 +17,15 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    permissions:
+      pull-requests: write
+
     strategy:
       matrix:
         node-version: [18.x] # ex: [16.x, 18.x], See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      - uses: hmarr/auto-approve-action@v3
       - uses: mirromutth/mysql-action@v1.1
         with:
           host port: 3306                        # Optional, default value is 3306. The port of host
