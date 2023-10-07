@@ -46,7 +46,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: merge
-        id: merged head
+        id: merged_head
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
