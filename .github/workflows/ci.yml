@@ -48,7 +48,6 @@ jobs:
           type: now
           from_branch: main
           target_branch: ${{ github.event.pull_request.head.sha }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
