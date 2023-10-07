@@ -45,8 +45,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      - name: merge
-        id: merged head
+      - name: pull pull_request.base
+        id: pull origin pull_request.base
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
