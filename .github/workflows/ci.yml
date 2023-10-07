@@ -2,6 +2,7 @@ name: Node.js test
 
 on:
   pull_request_target:
+    types: [opened, reopened]
     branches:
       - main
 #  push:
@@ -38,12 +39,20 @@ jobs:
           # mysql user: 'github'                 # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
           # mysql password: 'password'           # Required if "mysql user" exists. The password for the "mysql user"
       - run: mysql --version
-      - run: echo "checkout ${{ github.event.pull_request.head.sha }}"
-      - run: echo "repository ${{ github.event.repository }}"
+      - run: echo "checkout head ${{ github.event.pull_request.head.sha }}"
+      - run: echo "base ${{ github.event.pull_request.base.sha }}"
 #      - uses: actions/checkout@v3
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+      - name: merge
+        id: merged head
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git pull origin ${{ github.event.pull_request.base.sha }}
 #      - uses: tukasz/direct-merge-action@master
 #        with:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
