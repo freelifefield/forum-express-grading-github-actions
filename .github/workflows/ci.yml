@@ -52,7 +52,6 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-#          git merge ${{ github.event.pull_request.base.sha }}
           git pull origin main
 #      - uses: tukasz/direct-merge-action@master
 #        with:
