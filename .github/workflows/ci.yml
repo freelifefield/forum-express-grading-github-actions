@@ -25,7 +25,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x] # ex: [16.x, 18.x], See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    if: github.actor == '*@*'
+    if: github.actor == 'freelifefield'
     steps:
       - uses: hmarr/auto-approve-action@v3
       - uses: mirromutth/mysql-action@v1.1
