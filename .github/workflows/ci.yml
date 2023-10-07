@@ -1,11 +1,7 @@
 name: Node.js test
 
-on:
-  workflow_dispatch:
-    inputs:
-      pullRequestNumber:
-        description: Pull request number to auto-approve
-        required: false
+on: pull_request
+
 #  push:
 #    branches:
 #      - main
@@ -32,8 +28,6 @@ jobs:
 
     steps:
       - uses: hmarr/auto-approve-action@v3
-        with:
-          pull-request-number: ${{ github.event.inputs.pullRequestNumber }}
       - uses: mirromutth/mysql-action@v1.1
         with:
           host port: 3306                        # Optional, default value is 3306. The port of host
