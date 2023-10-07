@@ -46,8 +46,8 @@ jobs:
         uses: devmasx/merge-branch@master
         with:
           type: now
-          from_branch: main
-          target_branch: ${{ github.event.pull_request.head.sha }}
+          target_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
