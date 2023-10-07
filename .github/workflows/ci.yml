@@ -45,14 +45,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      - name: pull request.base
-        id: pull_base
+      - name: merge request.base
+        id: merge_base
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-          git pull origin ${{ github.event.pull_request.base.sha }}
+          git merge ${{ github.event.pull_request.base.sha }}
 #      - uses: tukasz/direct-merge-action@master
 #        with:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
